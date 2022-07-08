@@ -86,17 +86,18 @@ func (b *Base) WithRequestParams(url string, requestData map[string]interface{})
 }
 
 // VerifySign 验证回调签名
-func (b *Base) VerifySign(data map[string]interface{}) bool {
-	if data["sig"] != nil {
+func (b *Base) VerifySign(params map[string]interface{}) bool {
+	value, ok := params["sig"]
+	if !ok {
 		return false
 	}
-	originSign := data["sig"]
-	delete(data, "sig")
+	originSign := gconv.String(value)
+	delete(params, "sig")
 	systemData := map[string]interface{}{
-		"app_id":    data["app_id"],
-		"timestamp": data["timestamp"],
+		"app_id":    params["app_id"],
+		"timestamp": params["timestamp"],
 	}
-	sign := b.GenerateSign(systemData, data)
+	sign := b.GenerateSign(systemData, params)
 	return originSign == sign
 }
 
