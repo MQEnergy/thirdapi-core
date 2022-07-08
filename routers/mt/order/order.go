@@ -1,5 +1,8 @@
 package order
 
+/*
+订单类
+*/
 const (
 	POI_RECEIVED_URL                = "order/poi_received"                      // 设订单为商家已收到
 	CONFIRM_URL                     = "order/confirm"                           // 商家确认订单（必接）
