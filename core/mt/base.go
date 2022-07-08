@@ -75,8 +75,6 @@ func (b *Base) WithRequestParams(url string, requestData map[string]interface{})
 		"app_id":    b.AppId,
 		"timestamp": time.Now().Unix(),
 	}
-	//https://waimaiopen.meituan.com/api/v1/order/getOrderDetail?app_id=2742&order_id=4612593754970170004&timestamp=1657238693a016042051a1a78004a37b57dd4cdee5
-	//https://waimaiopen.meituan.com/api/v1/order/getOrderDetail?app_id=2742&order_id=4612593754970170004&timestamp=1657238544a016042051a1a78004a37b57dd4cdee5
 	// 将request和system数据变成url参数
 	b.RequestBody = buildUrlParams(requestData)
 	sign := b.GenerateSign(systemData, requestData)
