@@ -1,8 +1,8 @@
 package comment
 
 import (
-	"github.com/chenxi/thirdapi-core/core/mt"
-	"github.com/chenxi/thirdapi-core/routers/mt/comment"
+	"github.com/MQEnergy/thirdapi-core/core/mt"
+	"github.com/MQEnergy/thirdapi-core/routers/mt/comment"
 )
 
 type Comment struct {

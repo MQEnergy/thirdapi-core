@@ -1,4 +1,4 @@
-module github.com/chenxi/thirdapi-core
+module github.com/MQEnergy/thirdapi-core
 
 go 1.18
 

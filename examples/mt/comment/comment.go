@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/chenxi/thirdapi-core/core/mt/comment"
+	"github.com/MQEnergy/thirdapi-core/core/mt/comment"
 )
 
 func main() {

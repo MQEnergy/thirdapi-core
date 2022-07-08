@@ -1,8 +1,8 @@
 package order
 
 import (
-	"github.com/chenxi/thirdapi-core/core/mt"
-	"github.com/chenxi/thirdapi-core/routers/mt/order"
+	"github.com/MQEnergy/thirdapi-core/core/mt"
+	"github.com/MQEnergy/thirdapi-core/routers/mt/order"
 )
 
 type Order struct {

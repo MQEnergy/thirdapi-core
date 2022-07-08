@@ -1,8 +1,8 @@
 package shipping
 
 import (
-	"github.com/chenxi/thirdapi-core/core/mt"
-	"github.com/chenxi/thirdapi-core/routers/mt/shipping"
+	"github.com/MQEnergy/thirdapi-core/core/mt"
+	"github.com/MQEnergy/thirdapi-core/routers/mt/shipping"
 )
 
 type Shipping struct {

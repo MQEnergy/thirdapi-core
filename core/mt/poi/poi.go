@@ -1,8 +1,8 @@
 package poi
 
 import (
-	"github.com/chenxi/thirdapi-core/core/mt"
-	"github.com/chenxi/thirdapi-core/routers/mt/poi"
+	"github.com/MQEnergy/thirdapi-core/core/mt"
+	"github.com/MQEnergy/thirdapi-core/routers/mt/poi"
 )
 
 type Poi struct {
