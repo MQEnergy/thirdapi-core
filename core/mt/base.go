@@ -49,7 +49,6 @@ func (b *Base) WithClient(method string) (string, error) {
 	}
 	sortUrl := BaseUrl + b.Url + "?" + b.SystemBody
 	if method == "POST" {
-		fmt.Println(formatRequestData(b.RequestData))
 		b.req, b.err = client.PostForm(sortUrl, formatRequestData(b.RequestData))
 	} else {
 		sortUrl += "&" + b.RequestBody
