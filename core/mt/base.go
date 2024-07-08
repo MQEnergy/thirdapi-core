@@ -1,6 +1,3 @@
-/*
-
- */
 package mt
 
 import (
@@ -77,7 +74,7 @@ func (b *Base) WithRequestParams(url string, requestData map[string]interface{})
 	}
 	// 将request和system数据变成url参数
 	b.RequestBody = buildUrlParams(requestData)
-	sign := b.GenerateSign(systemData, requestData)
+	sign := b.generateSign(systemData, requestData)
 	systemData["sig"] = sign
 	b.SystemData = systemData
 
@@ -97,16 +94,16 @@ func (b *Base) VerifySign(params map[string]interface{}) bool {
 		"app_id":    params["app_id"],
 		"timestamp": params["timestamp"],
 	}
-	sign := b.GenerateSign(systemData, params)
+	sign := b.generateSign(systemData, params)
 	return originSign == sign
 }
 
-// GenerateSign 生成sign
-func (b *Base) GenerateSign(systemData, requestData map[string]interface{}) string {
+// generateSign 生成sign
+func (b *Base) generateSign(systemData, requestData map[string]interface{}) string {
 	for key, val := range systemData {
 		requestData[key] = val
 	}
-	keys := b.ArraySort(requestData)
+	_, keys := b.kSort(requestData)
 	var tmp []string
 	for _, val := range keys {
 		var params string
@@ -125,19 +122,8 @@ func (b *Base) GenerateSign(systemData, requestData map[string]interface{}) stri
 	return md5Str
 }
 
-// ArraySort 数组排序
-func (b *Base) ArraySort(arr map[string]interface{}) []string {
-	arr, keys := b.KSort(arr)
-	for _, val := range keys {
-		if reflect.TypeOf(arr[val]).String() == "map[string]interface {}" {
-			b.ArraySort(arr[val].(map[string]interface{}))
-		}
-	}
-	return keys
-}
-
-// KSort 按照键排序 map
-func (b *Base) KSort(arr map[string]interface{}) (map[string]interface{}, []string) {
+// kSort 按照键排序 map
+func (b *Base) kSort(arr map[string]interface{}) (map[string]interface{}, []string) {
 	var keys []string
 	for k := range arr {
 		keys = append(keys, k)
@@ -171,15 +157,8 @@ func formatRequestData(requestData map[string]interface{}) map[string][]string {
 // buildUrlParams 将map数据生成url参数字符串
 func buildUrlParams(data map[string]interface{}) string {
 	var params []string
-	var temp string
 	for key, val := range data {
-		if reflect.TypeOf(val).String() == "map[string]interface {}" {
-			marshal, _ := json.Marshal(val)
-			temp = string(marshal)
-		} else {
-			temp = gconv.String(val)
-		}
-		params = append(params, key+"="+temp)
+		params = append(params, key+"="+gconv.String(val))
 	}
 	return strings.Join(params, "&")
 }
