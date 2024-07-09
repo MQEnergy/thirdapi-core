@@ -24,3 +24,14 @@ func (c *Product) SkuStdupcExist(params map[string]interface{}) (string, error) 
 	}
 	return c.Base.WithRequestParams(product.SKU_STDUPC_EXIST_URL, data).WithClient()
 }
+
+// DrugSpuAuditApply 医药标品提报
+func (c *Product) DrugSpuAuditApply(params map[string]interface{}) (string, error) {
+	data := map[string]interface{}{
+		"barcode": params["barcode"],
+		"title":   params["title"],
+		"shopId":  params["shopId"],
+		"images":  params["images"],
+	}
+	return c.Base.WithRequestParams(product.DRUG_SPU_AUDIT_APPLY_URL, data).WithClient()
+}
