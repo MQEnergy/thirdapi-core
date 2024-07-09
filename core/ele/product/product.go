@@ -16,7 +16,7 @@ func New(appId, appSecret string) *Product {
 	}
 }
 
-// SkuStdupcExist 根据门店id批量查询评价信息（新版）
+// SkuStdupcExist 根据条形码查询是否平台药品SPU
 func (c *Product) SkuStdupcExist(params map[string]interface{}) (string, error) {
 	data := map[string]interface{}{
 		"shop_id": params["shop_id"],
