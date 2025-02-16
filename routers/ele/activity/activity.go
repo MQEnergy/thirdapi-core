@@ -1,0 +1,63 @@
+package activity
+
+const (
+	ACTIVITY_DISABLE_URL                 = "activity.disable"                       //【通用】下线商品营销活动（所有活动类型）
+	ACT_MULTI_CHAN_QINFOS_URL            = "act.multi.channel.queryinfos"           //【多渠道查询】多渠道查询活动详情
+	ACT_MULTI_CHAN_QIDS_URL              = "act.multi.channel.queryids"             // 多渠道查询获取参与的活动Id列表
+	Q_SKU_ACTIVITY_LIST_URL              = "query.sku.activity.list"                //【通用】查询商品参与的活动（非券活动）
+	ACTIVITY_CREATE_URL                  = "activity.create"                        //【单品直降、品类满减】创建商品营销活动
+	ACTIVITY_GET_URL                     = "activity.get"                           // 查看活动(直降、品类满减、N选一)
+	ACTIVITY_UPDATE_URL                  = "activity.update"                        //【单品直降、品类满减】更新活动信息
+	ACTIVITY_SKU_ADD_URL                 = "activity.sku.add"                       //【单品直降、品类满减】添加活动商品
+	ACTIVITY_SKU_UPDATE_URL              = "activity.sku.update"                    //【单品直降、品类满减】更新活动商品
+	ACTIVITY_SKU_LIST_URL                = "activity.sku.list"                      // 查看活动商品信息（直降、N选1、品类满减、第N件特价）
+	ACTIVITY_SKU_DELETE_URL              = "activity.sku.delete"                    // 删除活动商品（除N选1外，所有活动类型）
+	ACTIVITY_SKU_UPDATE_BATCH_URL        = "activity.sku.update.batch"              // 批量更新活动商品（仅直降）
+	ACTIVITY_SKU_ADD_BATCH_URL           = "activity.sku.add.batch"                 //【单品直降】批量添加活动商品
+	ACTIVITY_SKU_DELETE_BATCH_URL        = "activity.sku.delete.batch"              // 批量删除活动商品（除N选1外，所有活动类型）
+	ACT_ITEM_SKU_UPDATE_BATCH_URL        = "act.itemdiscount.sku.update.batch"      //【商品特价真折扣】商品真折扣批量修改商品明细
+	ACT_ITEM_CREATE_URL                  = "act.itemdiscount.create"                //【商品特价真折扣】商品真折扣创建活动
+	ACT_ITEM_MODIFY_URL                  = "act.itemdiscount.modify"                //【商品特价真折扣】商品真折扣修改活动信息
+	ACT_ITEM_SKU_UPDATE_URL              = "act.itemdiscount.sku.update"            //【商品特价真折扣】商品真折扣修改商品明细
+	ACT_ITEM_SKU_ADD_BATCH_URL           = "act.itemdiscount.sku.add.batch"         //【商品特价真折扣】商品真折扣批量添加商品明细
+	ACT_ITEM_SKU_ADD_URL                 = "act.itemdiscount.sku.add"               //【商品特价真折扣】商品真折扣添加商品明细
+	ACTIVITY_NGIFTM_UPDATE_URL           = "activity.ngiftm.update"                 // 更新买N赠M活动信息
+	ACTIVITY_NGIFTM_SKU_ADD_URL          = "activity.ngiftm.sku.add"                // 添加买N赠M活动商品和相应赠品
+	ACTIVITY_NGIFTM_SKU_ADD_BATCH_URL    = "activity.ngiftm.sku.add.batch"          // 批量添加买N赠M活动商品
+	ACTIVITY_NGIFTM_GET_URL              = "activity.ngiftm.get"                    // 查看买N赠M活动信息
+	ACTIVITY_NGIFTM_SKU_LIST_URL         = "activity.ngiftm.sku.list"               // 查看买N赠M查询活动商品信息列表
+	ACTIVITY_NGIFTM_SKU_UPDATE_BATCH_URL = "activity.ngiftm.sku.update.batch"       // 批量更新买N赠M活动商品库存、日库存信息
+	ACTIVITY_NGIFTM_SKU_UPDATE_URL       = "activity.ngiftm.sku.update"             // 更新买N赠M活动商品库存、日库存等
+	ACTIVITY_NGIFTM_CREATE_URL           = "activity.ngiftm.create"                 // 创建买N赠M营销活动
+	ACTIVITY_NITES_SKU_ADD_BATCH_URL     = "activity.nitemspecial.sku.add.batch"    // 批量添加第N件特价活动商品
+	ACTIVITY_NITES_CREATE_URL            = "activity.nitemspecial.create"           // 创建第N件特价活动
+	ACTIVITY_NITES_SKU_UPDATE_URL        = "activity.nitemspecial.sku.update"       // 更新第N件特价活动商品库存、日库存
+	ACTIVITY_NITES_GET_URL               = "activity.nitemspecial.get"              // 查看第N件特价活动信息
+	ACTIVITY_NITES_SKU_ADD_URL           = "activity.nitemspecial.sku.add"          // 添加第N件特价活动商品
+	ACTIVITY_NITES_UPDATE_URL            = "activity.nitemspecial.update"           // 更新第N件特价活动信息
+	ACTIVITY_NITES_SKU_UPDATE_BATCH_URL  = "activity.nitemspecial.sku.update.batch" // 批量更新第N件特价活动商品库存、日库存
+	ACT_NITED_SKU_ADD_BATCH_URL          = "act.nitemdiscount.sku.add.batch"        //【第N件特价真折扣】商品第N件特价真折扣批量添加商品明细
+	ACT_NITED_SKU_ADD_URL                = "act.nitemdiscount.sku.add"              //【第N件特价真折扣】商品第N件特价真折扣添加商品明细
+	ACT_NITED_MODIFY_URL                 = "act.nitemdiscount.modify"               //【第N件特价真折扣】商品第N件特价真折扣修改活动信息
+	ACT_NITED_SKU_UPDATE_URL             = "act.nitemdiscount.sku.update"           //【第N件特价真折扣】商品第N件特价真折扣修改商品明细
+	ACT_NITED_SKU_UPDATE_BATCH_URL       = "act.nitemdiscount.sku.update.batch"     //【第N件特价真折扣】商品第N件特价真折扣批量修改商品明细
+	ACT_NITED_CREATE_URL                 = "act.nitemdiscount.create"               //【第N件特价真折扣】商品第N件特价真折扣创建活动
+	ACT_XDISC_SKU_ADD_BATCH_URL          = "act.xdiscounty.sku.add.batch"           //【每满X件优惠】每满X件优惠批量添加商品明细
+	ACT_XDISC_CREATE_URL                 = "act.xdiscounty.create"                  //【每满X件优惠】每满X件优惠创建活动
+	ACT_XDISC_MODIFY_URL                 = "act.xdiscounty.modify"                  //【每满X件优惠】每满X件优惠修改活动信息
+	ACT_XDISC_SKU_ADD_URL                = "act.xdiscounty.sku.add"                 //【每满X件优惠】每满X件优惠添加商品明细
+	ACT_NCH_SKU_ADD_URL                  = "act.nchoosem.sku.add"                   // N选M活动添加商品明细
+	ACT_NCH_CREATE_URL                   = "act.nchoosem.create"                    //【N选M】N选M创建活动
+	ACT_NCH_MODIFY_URL                   = "act.nchoosem.modify"                    //【N选M活动】N选M活动修改活动信息
+	ACT_NCH_SKU_ADD_BATCH_URL            = "act.nchoosem.sku.add.batch"             //【N选M活动】N选M活动批量添加商品明细
+	ACT_NCH_SKU_UPDATE_BATCH_URL         = "act.nchoosem.sku.update.batch"          //【N选M】N选M批量修改商品明细
+	ACT_SHOPACT_Q_URL                    = "act.shopact.query"                      //【店铺类活动】店铺类活动查询活动信息
+	ACT_SHOPACT_DETAIL_ADD_SINGLE_URL    = "act.shopact.detail.add.single"          //【店铺类活动】店铺类活动添加单个店铺
+	ACT_SHOPACT_CREATE_URL               = "act.shopact.create"                     //【店铺类活动】创建店铺类活动
+	ACT_SHOPACT_DETAIL_Q_URL             = "act.shopact.detail.query"               //【店铺类活动】店铺类活动查询活动明细信息
+	ACT_SHOPACT_MODIFY_URL               = "act.shopact.modify"                     //【店铺类活动】店铺类活动信息修改
+	ACT_SHOPACT_DETAIL_DEL_URL           = "act.shopact.detail.del"                 //【店铺类活动】店铺类活动删除店铺
+	ACT_SHOPACT_DETAIL_DEL_SINGLE_URL    = "act.shopact.detail.del.single"          //【店铺类活动】店铺类活动删除单个店铺
+	ACT_SHOPACT_DETAIL_ADD_URL           = "act.shopact.detail.add"                 //【店铺类活动】店铺类活动添加店铺
+
+)

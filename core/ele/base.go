@@ -4,7 +4,7 @@ import (
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
-	"github.com/gogf/gf/v2/util/gconv"
+	"github.com/spf13/cast"
 	"io"
 	"io/ioutil"
 	"math/rand"
@@ -65,7 +65,7 @@ func formatRequestData(requestData map[string]interface{}) map[string][]string {
 			marshal, _ := json.Marshal(val)
 			temp = string(marshal)
 		} else {
-			temp = gconv.String(val)
+			temp = cast.ToString(val)
 		}
 		urlValues[key] = []string{temp}
 	}

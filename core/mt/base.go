@@ -4,7 +4,7 @@ import (
 	"crypto/md5"
 	"encoding/json"
 	"fmt"
-	"github.com/gogf/gf/v2/util/gconv"
+	"github.com/spf13/cast"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -88,7 +88,7 @@ func (b *Base) VerifySign(params map[string]interface{}) bool {
 	if !ok {
 		return false
 	}
-	originSign := gconv.String(value)
+	originSign := cast.ToString(value)
 	delete(params, "sig")
 	systemData := map[string]interface{}{
 		"app_id":    params["app_id"],
@@ -111,7 +111,7 @@ func (b *Base) generateSign(systemData, requestData map[string]interface{}) stri
 			marshal, _ := json.Marshal(requestData[val])
 			params = string(marshal)
 		} else {
-			params = gconv.String(requestData[val])
+			params = cast.ToString(requestData[val])
 		}
 		tmp = append(tmp, val+"="+params)
 	}
@@ -147,7 +147,7 @@ func formatRequestData(requestData map[string]interface{}) map[string][]string {
 			marshal, _ := json.Marshal(val)
 			temp = string(marshal)
 		} else {
-			temp = gconv.String(val)
+			temp = cast.ToString(val)
 		}
 		urlValues[key] = []string{temp}
 	}
@@ -158,7 +158,7 @@ func formatRequestData(requestData map[string]interface{}) map[string][]string {
 func buildUrlParams(data map[string]interface{}) string {
 	var params []string
 	for key, val := range data {
-		params = append(params, key+"="+gconv.String(val))
+		params = append(params, key+"="+cast.ToString(val))
 	}
 	return strings.Join(params, "&")
 }
